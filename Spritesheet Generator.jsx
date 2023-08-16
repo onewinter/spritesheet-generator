@@ -54,7 +54,15 @@ function SpriteGenerator() {
             var spriteWidthPadded = spriteWidth + paddingLeft + paddingRight;
             var spriteHeightPadded = spriteHeight + paddingTop + paddingBottom;
 
-            var spriteSheetDoc = app.documents.add(spriteWidthPadded * columns, spriteHeightPadded * rows, 72, sheetName);
+			var spriteSheetWidth = spriteWidthPadded * columns;
+			var spriteSheetHeight = spriteHeightPadded * columns;
+
+			if(spriteSheetWidth > 16384 || spriteSheetHeight > 16384){
+				alert("SpriteSheet would be larger than 16384 on one dimension");
+				return;
+			}
+
+            var spriteSheetDoc = app.documents.add(spriteSheetWidth, spriteSheetHeight, 72, sheetName);
             var tempDoc = app.documents.add(spriteWidthPadded, spriteHeightPadded, 72, sheetName + "_tmp");
 
             var cellSize = getSelectionShape(spriteWidth, 0, spriteHeight, 0);
