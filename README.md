@@ -1,3 +1,6 @@
+# Fork Description
+Added a Unity-specific check to the Spritesheet generator that will not allow you to generate spritesheets larger than 16384 in a single dimension, the limit for textures in Unity.
+
 # Description
 
 Spritesheet generator is for those who work with Photoshop's animation functions and want to easily export their animations into a simple spritesheet.
